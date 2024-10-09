@@ -7,7 +7,8 @@ phases:
       - export AWS_REGION="us-west-2" 
       - export AWS_ACCOUNT_ID="969387940970"
       - export IMAGE_REPO_NAME="dogs"
-      - aws --version
+      - aws --
+      - pwd
       - cat ../dockerPass.txt | docker login --username $DOCKER_ID --password-stdin
       - TOKEN=$(curl --user $DOCKER_ID:$DOCKER_PASS "https://auth.docker.io/token?service=registry.docker.io&scope=repository:ratelimitpreview/test:pull" | jq -r .token)
       - 'curl --head -H "Authorization: Bearer $TOKEN" https://registry-1.docker.io/v2/ratelimitpreview/test/manifests/latest'
